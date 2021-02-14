@@ -10,11 +10,11 @@ export const theme = extendTheme({
     Table: {
       baseStyle: {
         caption: {
-          textAlign: 'left',
-          mt: "0"
-        }
-      }
-    }
+          textAlign: "left",
+          mt: "0",
+        },
+      },
+    },
   },
   textStyles: {
     "sidebar-title": {

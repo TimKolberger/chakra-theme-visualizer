@@ -61,12 +61,12 @@ const createCustomTokensMap: Partial<
       : [],
 
   styles: (themeValue: ChakraTheme["styles"]) =>
-      themeValue
-          ? Object.entries(themeValue).map(([key, value]) => [
-            key,
-            JSON.stringify(value, null, 2),
-          ])
-          : [],
+    themeValue
+      ? Object.entries(themeValue).map(([key, value]) => [
+          key,
+          JSON.stringify(value, null, 2),
+        ])
+      : [],
 };
 
 /**

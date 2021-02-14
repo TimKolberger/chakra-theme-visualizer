@@ -1,20 +1,18 @@
 import * as React from "react";
-import { ChakraProvider } from "@chakra-ui/react";
-import { ThemeVisualizer } from "./components/ThemeVisualizer";
+import { ThemeExplorer } from "./components/ThemeExplorer";
 import { theme } from "./theme";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { NotFoundPage } from "./components/NotFoundPage";
 
 export const App = () => (
-  <ChakraProvider theme={theme}>
-    <BrowserRouter basename="/">
-      <Switch>
-        <Route path="/" exact render={() => <Redirect to="/theme/fonts" />} />
-        <Route path="/theme/:section" exact>
-          <ThemeVisualizer theme={theme} />
-        </Route>
-        <Route path="*" exact component={NotFoundPage} />
-      </Switch>
-    </BrowserRouter>
-  </ChakraProvider>
+  <>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <h1>Chakra Theme Explorer Demo</h1>
+    </div>
+    <ThemeExplorer theme={theme} />
+  </>
 );
