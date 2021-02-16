@@ -51,6 +51,7 @@ export const ThemeExplorer: React.FC<ThemeExplorerProps> = ({
           bottom="0"
           right="0"
           m="2"
+          shadow="lg"
           {...buttonProps}
         />
       </Tooltip>

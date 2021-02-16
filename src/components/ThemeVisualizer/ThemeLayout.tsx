@@ -1,7 +1,7 @@
 import * as React from "react";
-import { ThemeSidebar } from "./ThemeVisualizer";
-import { Layout } from "./Layout";
 import { ChakraTheme } from "@chakra-ui/react";
+import { Layout } from "../Layout";
+import { ThemeSidebar } from "./ThemeSidebar";
 
 export type ThemeLayoutProps = {
   theme: ChakraTheme;

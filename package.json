@@ -1,57 +1,58 @@
 {
-  "name": "chakra-cra-ts",
+  "name": "chakra-ui-theme-explorer",
   "version": "0.1.0",
   "license": "MIT",
+  "author": "Tim Kolberger <tim@kolberger.eu>",
+  "main": "dist/index.js",
+  "module": "dist/chakra-ui-theme-explorer.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --env=jsdom",
+    "lint": "tsdx lint"
+  },
   "dependencies": {
+    "components": "^0.1.0",
+    "lodash": "^4.17.20",
+    "react-icons": "^3.0.0",
+    "react-new-window": "^0.1.3",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
     "@chakra-ui/react": "^1.3.3",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
-    "@testing-library/jest-dom": "^5.9.0",
-    "@testing-library/react": "^10.2.1",
-    "@testing-library/user-event": "^12.0.2",
     "@types/jest": "^25.0.0",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "framer-motion": ">=3.0.0",
-    "lodash": "^4.17.20",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-icons": "^3.0.0",
-    "react-new-window": "^0.1.3",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.2",
-    "typescript": "^4.1.5",
-    "web-vitals": "^0.2.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "gen:theme-typings": "chakra-cli tokens src/theme.ts",
-    "postinstall": "npm run gen:theme-typings"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@chakra-ui/cli": "^1.2.1",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
-    "prettier": "^2.2.1"
+    "framer-motion": "^3.3.0",
+    "husky": "^5.0.9",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.5"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": ">=1.3.0",
+    "@emotion/react": ">=11.0.0",
+    "@emotion/styled": ">=11.0.0",
+    "framer-motion": ">=3.0.0",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
   }
 }

@@ -8,7 +8,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import * as React from "react";
-import { ThemeLayout } from "../ThemeLayout";
+import { ThemeLayout } from "./ThemeLayout";
 import { useRouteMatch } from "react-router";
 import startCase from "lodash/startCase";
 import { createTokens, TokenTable, TokenTableProps } from "./TokenTable";
