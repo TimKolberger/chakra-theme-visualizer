@@ -47,7 +47,7 @@ export const ThemeExplorer: React.FC<ThemeExplorerProps> = ({
           colorScheme="teal"
           isRound
           icon={<ExplorerIcon />}
-          position="absolute"
+          position="fixed"
           bottom="0"
           right="0"
           m="2"
