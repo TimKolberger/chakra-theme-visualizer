@@ -13,8 +13,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --env=jsdom",
-    "lint": "tsdx lint",
-    "prepublish": "yarn run build"
+    "lint": "tsdx lint"
   },
   "dependencies": {
     "components": "^0.1.0",
