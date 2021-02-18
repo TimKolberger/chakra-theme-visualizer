@@ -1,6 +1,6 @@
 {
   "name": "chakra-ui-theme-explorer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": "Tim Kolberger <tim@kolberger.eu>",
   "main": "dist/index.js",
@@ -18,6 +18,7 @@
   "dependencies": {
     "components": "^0.1.0",
     "lodash": "^4.17.20",
+    "lodash-es": "^4.17.20",
     "react-icons": "^3.0.0",
     "react-new-window": "^0.1.3",
     "react-router": "^5.2.0",
