@@ -1,7 +1,6 @@
 import * as React from "react";
 import { theme as explorerTheme } from "../theme";
 import { MemoryRouter, Redirect, Route, Switch } from "react-router-dom";
-import { ThemeVisualizer } from "./ThemeVisualizer";
 import { NotFoundPage } from "./NotFoundPage";
 import {
   IconButton,
@@ -15,6 +14,7 @@ import {
 import NewWindow from "react-new-window";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
+import { ThemeExplorerRoute } from "./ThemeExplorerRoute";
 
 export type ThemeExplorerProps = {
   theme: ChakraTheme;
@@ -106,7 +106,7 @@ const Nested = ({
         <Switch>
           <Route path="/" exact render={() => <Redirect to="/theme/fonts" />} />
           <Route path="/theme/:section" exact>
-            <ThemeVisualizer theme={theme} />
+            <ThemeExplorerRoute theme={theme} />
           </Route>
           <Route path="*" exact component={NotFoundPage} />
         </Switch>

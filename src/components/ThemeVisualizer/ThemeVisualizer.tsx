@@ -9,18 +9,19 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 import { ThemeLayout } from "./ThemeLayout";
-import { useRouteMatch } from "react-router";
 import startCase from "lodash/startCase";
 import { createTokens, TokenTable, TokenTableProps } from "./TokenTable";
 import { get } from "@chakra-ui/utils";
 
 export type ThemeVisualizerProps = {
   theme: ChakraTheme;
+  section: keyof ChakraTheme;
 };
 
-export const ThemeVisualizer: React.FC<ThemeVisualizerProps> = ({ theme }) => {
-  const match = useRouteMatch<{ section: keyof ChakraTheme }>();
-  const { section } = match.params;
+export const ThemeVisualizer: React.FC<ThemeVisualizerProps> = ({
+  theme,
+  section,
+}) => {
   const themeValue = theme[section];
 
   const title = startCase(section);
