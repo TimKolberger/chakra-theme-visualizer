@@ -9,6 +9,7 @@ import {
   createIcon,
   useDisclosure,
   Tooltip,
+  ChakraProviderProps,
 } from "@chakra-ui/react";
 import NewWindow from "react-new-window";
 import { CacheProvider } from "@emotion/react";
@@ -20,6 +21,12 @@ import { theme as explorerTheme } from "./theme";
 export type ThemeExplorerProps = {
   theme: ChakraTheme;
   buttonProps?: ButtonProps;
+};
+
+const colorModeManager: ChakraProviderProps["colorModeManager"] = {
+  type: "localStorage",
+  get: () => undefined,
+  set: () => {},
 };
 
 const ExplorerIcon = createIcon({
@@ -40,7 +47,7 @@ export const ThemeExplorer: React.FC<ThemeExplorerProps> = ({
   const label = (isOpen ? "Close" : "Open") + " Chakra UI Theme Explorer";
 
   return (
-    <ChakraProvider theme={explorerTheme}>
+    <ChakraProvider theme={explorerTheme} colorModeManager={colorModeManager}>
       <Tooltip label={label}>
         <IconButton
           onClick={onToggle}
@@ -101,14 +108,7 @@ export const Nested = ({
 
 export const StandaloneThemeExplorer = ({ theme }: { theme: ChakraTheme }) => {
   return (
-    <ChakraProvider
-      theme={explorerTheme}
-      colorModeManager={{
-        type: "localStorage",
-        get: () => undefined,
-        set: () => {},
-      }}
-    >
+    <ChakraProvider theme={explorerTheme} colorModeManager={colorModeManager}>
       <ThemeToExploreProvider theme={theme}>
         <MemoryRouter>
           <Switch>
