@@ -1,6 +1,33 @@
 # Chakra Theme Explorer
 
-## Commands
+## Installation
+
+```bash
+npm install chakra-ui-theme-explorer
+# or
+yarn add chakra-ui-theme-explorer
+```
+
+## Usage
+
+Render the `ThemeExplorer` component in your app and pass your application theme of chakra UI.
+
+```jsx
+import { ChakraProvider, Heading } from "@chakra-ui/react";
+import { ThemeExplorer } from "chakra-ui-theme-explorer";
+import { theme } from "./your-app-theme";
+
+const App = () => (
+  <>
+    <ChakraProvider theme={theme}>
+      <Heading>Chakra Theme Explorer Demo</Heading>
+    </ChakraProvider>
+    <ThemeExplorer theme={theme} />
+  </>
+);
+```
+
+## Development
 
 ```
 npm start # or yarn start
