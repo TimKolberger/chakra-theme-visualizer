@@ -1,6 +1,9 @@
 import { extendTheme } from "@chakra-ui/react";
 
 export const theme = extendTheme({
+  config: {
+    useSystemColorMode: true,
+  },
   components: {
     Code: {
       defaultProps: {
@@ -33,7 +36,7 @@ export const theme = extendTheme({
   },
   styles: {
     global: {
-      "html, body, #root": {
+      "html, body, #root, body > div:first-of-type": {
         minH: "100vh",
         display: "flex",
         flexDir: "column",

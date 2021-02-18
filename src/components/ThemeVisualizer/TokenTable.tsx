@@ -11,7 +11,6 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { get, isObject } from "@chakra-ui/utils";
 
 export type TokenTableProps = {
   title: string;
@@ -74,7 +73,7 @@ const TokenTableRow = ({
     <Tr key={token}>
       <Td>{token}</Td>
       <Td>
-        <Code>{value}</Code>
+        <Code as="pre" whiteSpace="pre-wrap">{value}</Code>
       </Td>
       {columnVisualizer ? (
         <Td>{columnVisualizer({ token, value, theme })}</Td>
@@ -82,32 +81,3 @@ const TokenTableRow = ({
     </Tr>
   );
 };
-
-export function createTokens(value: unknown, maxDepth = 4): [string, string][] {
-  if (!isObject(value) && !Array.isArray(value)) {
-    return [["—", String(value)]];
-  }
-
-  const propertyPaths = extractPropertyPaths(value, maxDepth);
-  return propertyPaths.map((path) => [path, String(get(value, path))]);
-}
-
-function extractPropertyPaths(target: unknown, maxDepth = 1) {
-  if ((!isObject(target) && !Array.isArray(target)) || !maxDepth) {
-    return [];
-  }
-
-  return Object.entries(target).reduce((allPropertyPaths, [key, value]) => {
-    if (isObject(value)) {
-      extractPropertyPaths(value, maxDepth - 1).forEach((childKey) =>
-        // e.g. gray.500
-        allPropertyPaths.push(`${key}.${childKey}`)
-      );
-    } else {
-      // e.g. transparent
-      allPropertyPaths.push(key);
-    }
-
-    return allPropertyPaths;
-  }, [] as string[]);
-}

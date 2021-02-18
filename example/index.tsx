@@ -2,23 +2,8 @@ import "react-app-polyfill/ie11";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { theme } from "../src/theme";
-import { ThemeExplorer } from "../src";
+import { StandaloneThemeExplorer } from "../src";
 
-const App = () => {
-  return (
-    <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <h1>Chakra Theme Explorer Demo</h1>
-      </div>
-      <ThemeExplorer theme={theme} />
-    </>
-  );
-};
+const App = () => <StandaloneThemeExplorer theme={theme} />;
 
 ReactDOM.render(<App />, document.getElementById("root"));
