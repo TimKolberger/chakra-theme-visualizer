@@ -1,6 +1,6 @@
 {
   "name": "chakra-ui-theme-explorer",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "author": "Tim Kolberger <tim@kolberger.eu>",
   "main": "dist/index.js",
