@@ -1,5 +1,11 @@
 import * as React from "react";
-import { MemoryRouter, Redirect, Route, Switch } from "react-router-dom";
+import {
+  HashRouter,
+  MemoryRouter,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import {
   IconButton,
@@ -47,7 +53,11 @@ export const ThemeExplorer: React.FC<ThemeExplorerProps> = ({
   const label = (isOpen ? "Close" : "Open") + " Chakra UI Theme Explorer";
 
   return (
-    <ChakraProvider theme={explorerTheme} colorModeManager={colorModeManager}>
+    <ChakraProvider
+      theme={explorerTheme}
+      colorModeManager={colorModeManager}
+      resetCSS={false}
+    >
       <Tooltip label={label}>
         <IconButton
           onClick={onToggle}
@@ -106,11 +116,19 @@ export const Nested = ({
   </CacheProvider>
 );
 
-export const StandaloneThemeExplorer = ({ theme }: { theme: ChakraTheme }) => {
+export const StandaloneThemeExplorer = ({
+  theme,
+  router = "memory",
+}: {
+  theme: ChakraTheme;
+  router?: "memory" | "hash";
+}) => {
+  const Router: any = router === "hash" ? HashRouter : MemoryRouter;
+
   return (
     <ChakraProvider theme={explorerTheme} colorModeManager={colorModeManager}>
       <ThemeToExploreProvider theme={theme}>
-        <MemoryRouter>
+        <Router>
           <Switch>
             <Route
               path="/"
@@ -124,7 +142,7 @@ export const StandaloneThemeExplorer = ({ theme }: { theme: ChakraTheme }) => {
             />
             <Route path="*" component={NotFoundPage} />
           </Switch>
-        </MemoryRouter>
+        </Router>
       </ThemeToExploreProvider>
     </ChakraProvider>
   );
