@@ -23,6 +23,7 @@ import createCache from "@emotion/cache";
 import { ThemeExplorerRoute } from "./pages/ThemeExplorerRoute";
 import { ThemeToExploreProvider } from "./providers/ThemeToExploreProvider";
 import { theme as explorerTheme } from "./theme";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 export type ThemeExplorerProps = {
   theme: ChakraTheme;
@@ -45,8 +46,23 @@ export const ThemeExplorer: React.FC<ThemeExplorerProps> = ({
   theme,
   buttonProps,
 }) => {
-  const { isOpen, onClose, onToggle } = useDisclosure();
+  const [defaultIsOpen, setDefaultIsOpen] = useLocalStorage(
+    "chakra-theme-explorer:OPEN",
+    false
+  );
+  const { isOpen, onClose, onToggle } = useDisclosure({
+    defaultIsOpen,
+    onOpen: () => setDefaultIsOpen(true),
+    onClose: () => setDefaultIsOpen(false),
+  });
   const windowRef = React.useRef<NewWindow | null>();
+
+  React.useEffect(() => {
+    window.addEventListener("unload", () => {
+      windowRef.current?.release();
+      setDefaultIsOpen(true);
+    });
+  }, []);
 
   React.useEffect(() => () => windowRef.current?.release(), []);
 
