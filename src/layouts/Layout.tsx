@@ -11,7 +11,13 @@ export const Layout: React.FC<LayoutProps> = ({
   ...boxProps
 }) => {
   return (
-    <Flex pos="relative" flex="1" align="stretch" {...boxProps}>
+    <Flex
+      pos="relative"
+      align="stretch"
+      minH="100vh"
+      flex="1 0 auto"
+      {...boxProps}
+    >
       {sidebar}
       <Flex flex="1" w="auto" overflow="hidden">
         {children}

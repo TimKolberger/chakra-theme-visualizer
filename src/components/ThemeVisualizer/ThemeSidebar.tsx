@@ -16,6 +16,7 @@ import { Link } from "../Link";
 import { useThemeToExplore } from "../../providers/ThemeToExploreProvider";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
 import { isObject } from "@chakra-ui/utils";
+import { Logo } from "../Logo";
 
 export type ThemeSidebarProps = BoxProps;
 
@@ -109,17 +110,21 @@ export const ThemeSidebar: React.FC<ThemeSidebarProps> = (props) => {
       top="0"
       overflowY="auto"
       as="nav"
-      p="4"
       minW="60"
       alignSelf="stretch"
       bg={bg}
       {...props}
     >
-      <HStack justify="space-between" mb="4">
-        <Text fontWeight="bold">Theme Explorer</Text>
+      <HStack justify="flex-start" px="2" py="4">
+        <Logo boxSize="8" />
+        <Text fontWeight="bold" mr="auto">
+          Theme Explorer
+        </Text>
         <ColorModeSwitcher size="sm" fontSize="sm" />
       </HStack>
-      {content}
+      <Box p="4" pt="2">
+        {content}
+      </Box>
     </Box>
   );
 };

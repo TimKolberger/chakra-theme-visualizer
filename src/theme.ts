@@ -2,7 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 export const theme = extendTheme({
   config: {
-    useSystemColorMode: true,
+    useSystemColorMode: false,
   },
   components: {
     Code: {
@@ -32,16 +32,6 @@ export const theme = extendTheme({
     },
     "sidebar-link": {
       fontSize: "sm",
-    },
-  },
-  styles: {
-    global: {
-      "html, body, #root, body > div:first-of-type": {
-        minH: "100vh",
-        display: "flex",
-        flexDir: "column",
-        flex: "1 0 auto",
-      },
     },
   },
 });

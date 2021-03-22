@@ -10,5 +10,5 @@ import {
 
 export type LinkProps = ReactRouterLinkProps & ChakraLinkProps;
 export const Link: React.FC<LinkProps> = (props) => {
-  return <ChakraLink as={ReactRouterLink}  {...props} />;
+  return <ChakraLink as={ReactRouterLink} {...props} />;
 };

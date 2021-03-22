@@ -26,8 +26,8 @@ export const TokenItem = ({
   theme,
   tokenVisualizer,
 }: TokenItemProps) => {
-  const bg = useColorModeValue("gray.200", "gray.900");
-  const visualizerBg = useColorModeValue("white", "black");
+  const bg = useColorModeValue("gray.200", "gray.700");
+  const visualizerBg = useColorModeValue("white", "gray.800");
   const { hasCopied, onCopy, value: copiedValue } = useClipboard(token);
   const copiedLabel = `Copied "${copiedValue}"`;
 
@@ -62,7 +62,7 @@ export const TokenItem = ({
       }}
     >
       {visualization}
-      <HStack spacing="2" p="3" overflowX="auto" align="center" flex="1 0 auto">
+      <HStack spacing="2" p="3" overflowX="auto" align="center" flex="0 0 auto">
         <Tooltip
           label={copiedLabel}
           isOpen={hasCopied}

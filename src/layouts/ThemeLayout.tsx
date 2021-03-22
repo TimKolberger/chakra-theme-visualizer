@@ -6,7 +6,7 @@ import { Box, useColorModeValue } from "@chakra-ui/react";
 export type ThemeLayoutProps = {};
 export const ThemeLayout: React.FC<ThemeLayoutProps> = ({ children }) => {
   const bg = useColorModeValue("gray.50", "gray.700");
-  const contentBg = useColorModeValue("gray.100", "gray.800");
+  const contentBg = useColorModeValue("gray.100", "gray.900");
 
   return (
     <Layout sidebar={<ThemeSidebar />} bg={bg}>
