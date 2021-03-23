@@ -14,6 +14,7 @@ export const ColorGrid: React.FC<TokenGridProps> = ({
   if (!tokens.length) {
     return null;
   }
+
   const colorSchemes = tokens.reduce(
     (allColorSchemes, [token, value], index, all) => {
       const prev = all[index - 1];
@@ -35,14 +36,14 @@ export const ColorGrid: React.FC<TokenGridProps> = ({
       <Box as="aside" p="4" mb="4">
         {description}
       </Box>
-      <VStack align="stretch" spacing="8">
+      <VStack align="stretch" spacing={["8", "16"]}>
         {colorSchemes.map((colorScheme, index) => (
           <AutoGrid
             as={List}
             key={index}
             px="2"
-            pb="2"
-            gap="4"
+            pb={["2", "4"]}
+            gap={["4", "8"]}
             minColWidth={minColWidth}
           >
             {colorScheme.map(([token, value]) => (

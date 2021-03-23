@@ -132,9 +132,7 @@ export const tokenListConfig: Partial<
   },
 
   borders: {
-    tokenVisualizer: (row) => (
-      <Box h="16" w="full" background="blue.200" border={row.value} />
-    ),
+    tokenVisualizer: (row) => <Box h="16" w="full" border={row.value} />,
   },
 
   breakpoints: {
@@ -165,14 +163,13 @@ export const tokenListConfig: Partial<
   },
 
   sizes: {
-    minColWidth: "full",
     tokenVisualizer: (row) => (
       <Box width={row.value} h="3" background="blue.200" />
     ),
   },
 
   space: {
-    minColWidth: "full",
+    minColWidth: "lg",
     tokenVisualizer: (row) => (
       <Flex>
         <Box mr={row.value} boxSize="3" background="blue.200" />

@@ -24,10 +24,16 @@ export const TokenGrid: React.FC<TokenGridProps> = ({
 
   return (
     <>
-      <Box as="aside" p="4" mb="4">
+      <Box as="aside" p="4" mb={["4", "8"]}>
         {description}
       </Box>
-      <AutoGrid as={List} px="2" pb="2" gap="4" minColWidth={minColWidth}>
+      <AutoGrid
+        as={List}
+        px="2"
+        pb="2"
+        gap={["2", "8", "10"]}
+        minColWidth={minColWidth}
+      >
         {tokens.map(([token, value]) => (
           <TokenItem
             key={token}

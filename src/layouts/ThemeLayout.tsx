@@ -16,6 +16,7 @@ export const ThemeLayout: React.FC<ThemeLayoutProps> = ({ children }) => {
         bg={contentBg}
         m="2"
         flex="1"
+        p={["2", "8", "10"]}
         overflow="hidden"
       >
         {children}

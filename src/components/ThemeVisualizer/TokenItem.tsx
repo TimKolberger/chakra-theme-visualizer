@@ -39,7 +39,7 @@ export const TokenItem = ({
 
   const tokenVisualization = tokenVisualizer?.({ token, value, theme });
   const visualization = tokenVisualization ? (
-    <Box bg={visualizerBg} px="3" py="4" flex="1">
+    <Box bg={visualizerBg} px="6" py="4" flex="1">
       {tokenVisualization}
     </Box>
   ) : null;
@@ -47,6 +47,8 @@ export const TokenItem = ({
   return (
     <ListItem
       bg={bg}
+      transition="box-shadow 250ms ease-out"
+      _hover={{ shadow: "lg" }}
       borderRadius="md"
       shadow="md"
       overflow="hidden"
@@ -62,7 +64,13 @@ export const TokenItem = ({
       }}
     >
       {visualization}
-      <HStack spacing="2" p="3" overflowX="auto" align="center" flex="0 0 auto">
+      <HStack
+        spacing="2"
+        p="6"
+        overflowX="auto"
+        align="baseline"
+        flex="0 0 auto"
+      >
         <Tooltip
           label={copiedLabel}
           isOpen={hasCopied}
