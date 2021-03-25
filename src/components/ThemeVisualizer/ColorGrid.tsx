@@ -33,10 +33,12 @@ export const ColorGrid: React.FC<TokenGridProps> = ({
 
   return (
     <>
-      <Box as="aside" p="4" mb="4">
-        {description}
-      </Box>
-      <VStack align="stretch" spacing={["8", "16"]}>
+      {description ? (
+        <Box as="aside" p="8">
+          {description}
+        </Box>
+      ) : null}
+      <VStack align="stretch" spacing={["8", "16"]} mt={["4", "8"]}>
         {colorSchemes.map((colorScheme, index) => (
           <AutoGrid
             as={List}

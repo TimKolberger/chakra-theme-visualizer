@@ -39,7 +39,7 @@ export const TokenItem = ({
 
   const tokenVisualization = tokenVisualizer?.({ token, value, theme });
   const visualization = tokenVisualization ? (
-    <Box bg={visualizerBg} px="6" py="4" flex="1">
+    <Box bg={visualizerBg} px="6" py="6" flex="1">
       {tokenVisualization}
     </Box>
   ) : null;
@@ -67,6 +67,7 @@ export const TokenItem = ({
       <HStack
         spacing="2"
         p="6"
+        py="4"
         overflowX="auto"
         align="baseline"
         flex="0 0 auto"
@@ -76,7 +77,7 @@ export const TokenItem = ({
           isOpen={hasCopied}
           placement="bottom-start"
         >
-          <Heading size="sm" flexBasis="8ch">
+          <Heading size="md" flexBasis="8ch">
             {token}
           </Heading>
         </Tooltip>

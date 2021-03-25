@@ -38,14 +38,19 @@ const colorModeManager: ChakraProviderProps["colorModeManager"] = {
       return undefined;
     }
 
-    const raw = localStorage.getItem(colorModeKey);
+    const raw = isBrowser
+      ? globalThis.localStorage.getItem(colorModeKey)
+      : undefined;
     if (["light", "dark"].includes(String(raw))) {
       return raw as "light" | "dark";
     }
 
     return undefined;
   },
-  set: (value) => localStorage.setItem(colorModeKey, value),
+  set: (value) =>
+    isBrowser
+      ? globalThis.localStorage.setItem(colorModeKey, value)
+      : undefined,
 };
 
 export interface ThemeExplorerProps {
@@ -73,9 +78,9 @@ export const ThemeExplorer: React.FC<ThemeExplorerProps> = ({
       windowRef.current?.release();
       setDefaultIsOpen(isOpen);
     };
-    window.addEventListener("unload", handleUnload);
+    globalThis.addEventListener("unload", handleUnload);
     return () => {
-      window.removeEventListener("unload", handleUnload);
+      globalThis.removeEventListener("unload", handleUnload);
     };
   }, [isOpen, setDefaultIsOpen]);
 
@@ -111,6 +116,7 @@ export const ThemeExplorer: React.FC<ThemeExplorerProps> = ({
         </Tooltip>
       </HStack>
       {isOpen ? (
+        // @ts-ignore
         <NewWindow
           title="Chakra UI Theme Explorer"
           onUnload={onClose}

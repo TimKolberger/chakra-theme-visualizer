@@ -47,7 +47,6 @@ export const tokenListConfig: Partial<
   Record<keyof ChakraTheme, TokenListConfig>
 > = {
   fonts: {
-    minColWidth: "full",
     tokenVisualizer: (row) => (
       <Box fontFamily={row.value}>
         Almost before we knew it, we had left the ground.
@@ -79,7 +78,6 @@ export const tokenListConfig: Partial<
   },
 
   fontWeights: {
-    minColWidth: "lg",
     tokenVisualizer: (row) => (
       <Box overflow="hidden" maxW="calc(100vw - 30rem)">
         <Text fontWeight={row.value} isTruncated>
@@ -163,6 +161,7 @@ export const tokenListConfig: Partial<
   },
 
   sizes: {
+    minColWidth: "lg",
     tokenVisualizer: (row) => (
       <Box width={row.value} h="3" background="blue.200" />
     ),
@@ -179,7 +178,6 @@ export const tokenListConfig: Partial<
   },
 
   shadows: {
-    minColWidth: "lg",
     tokenVisualizer: (row) => <Box shadow={row.value} h="16" w="full" />,
   },
 
@@ -230,6 +228,12 @@ export const tokenListConfig: Partial<
       );
     },
   },
+  layerStyles: {
+    tokenVisualizer: (row) => {
+      const sx = get(row.theme, `layerStyles.${row.token}`);
+      return <Box boxSize="16" sx={sx} />;
+    },
+  },
 };
 
 export const createCustomTokensMap: Partial<
@@ -239,6 +243,14 @@ export const createCustomTokensMap: Partial<
   >
 > = {
   textStyles: (themeValue: ChakraTheme["textStyles"]) =>
+    themeValue
+      ? Object.entries(themeValue).map(([key, value]) => [
+          key,
+          JSON.stringify(value, null, 2),
+        ])
+      : [],
+
+  layerStyles: (themeValue: ChakraTheme["layerStyles"]) =>
     themeValue
       ? Object.entries(themeValue).map(([key, value]) => [
           key,

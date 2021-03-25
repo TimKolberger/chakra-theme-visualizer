@@ -35,7 +35,7 @@ export const ThemeVisualizer: React.FC<ThemeVisualizerProps> = ({
 
   return (
     <VStack w="full" align="stretch">
-      <Box as="header" pt="10" px="4">
+      <Box as="header" pt="10" px="8">
         <Heading size="lg" fontWeight="300">
           {title}
         </Heading>
