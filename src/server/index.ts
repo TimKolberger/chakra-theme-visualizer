@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import "regenerator-runtime/runtime";
 import * as path from "path";
 import { register } from "ts-node";
@@ -42,7 +43,7 @@ Example call:
     res.json(theme);
   });
 
-  app.use(express.static("example/dist"));
+  app.use(express.static(path.join(__dirname, "..", "example", "dist")));
 
   const server = app.listen(port, () => {
     const address = server.address();
