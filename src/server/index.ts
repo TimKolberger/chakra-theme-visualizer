@@ -43,7 +43,7 @@ Example call:
     res.json(theme);
   });
 
-  app.use(express.static(path.join(__dirname, "..", "example", "dist")));
+  app.use(express.static(path.join(__dirname, "..", "..", "example", "dist")));
 
   const server = app.listen(port, () => {
     const address = server.address();
