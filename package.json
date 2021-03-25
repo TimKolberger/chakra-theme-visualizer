@@ -12,7 +12,7 @@
     "example"
   ],
   "bin": {
-    "explore-chakra-theme": "node ./bin/server/index.js"
+    "explore-chakra-theme": "./bin/server/index.js"
   },
   "scripts": {
     "clean": "rimraf bin dist",
